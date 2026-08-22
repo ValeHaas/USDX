@@ -5,20 +5,21 @@
 ; Product Information:
 
 ; use this block for a dev version
-!define VersionStr "2026.8.1"
-!define FullVersion "2026.8.1+dev" ; semver compatible. see semver.org
-!define Release "Dev"
-!define DevBuild true
-!define ReleaseMeta "+dev"
-!define ReleaseApp " Dev"
+;!define VersionStr "2026.8.2"
+;!define FullVersion "2026.8.2+dev" ; semver compatible. see semver.org
+;!define Release "Dev"
+;!define DevBuild true
+;!define ReleaseMeta "+dev"
+;!define ReleaseApp " Dev"
 
 ; use this block for a release version
-;!define VersionStr "2026.8.1"
-;!define FullVersion "2026.8.1" ; semver compatible. see semver.org
-;!define Release "Stable"
-;!define DevBuild false
-;!define ReleaseMeta "+stable"
-;!define ReleaseApp " Stable"
+; VersionStr must stay purely numeric: it feeds VIProductVersion "${VersionStr}.0"
+!define VersionStr "2026.8.2"
+!define FullVersion "2026.8.2-expand-lua-api-unofficial" ; semver compatible. see semver.org
+!define Release "Unofficial"
+!define DevBuild false
+!define ReleaseMeta "-expand-lua-api-unofficial"
+!define ReleaseApp " Unofficial"
 
 !define installername " Installer"
 !define installerexe "UltraStar.Deluxe_v${VersionStr}${ReleaseMeta}_installer"
