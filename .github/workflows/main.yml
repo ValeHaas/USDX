@@ -215,6 +215,21 @@ jobs:
           cache-to: type=gha,mode=max,ignore-error=true
           load: true
           tags: usdx/buildenv:latest
+      # www.freedesktop.org (annarchy) is refusing connections, so dl.sh cannot
+      # fetch pulseaudio. Seed it here instead: the runner has a current CA
+      # bundle, whereas the jessie build container cannot verify most mirrors.
+      # dl.sh skips any file already present in deps/dl with the expected sha1.
+      - name: Pre-seed pulseaudio tarball
+        run: |
+          mkdir -p dists/linux/deps/dl
+          target=dists/linux/deps/dl/pulseaudio-16.1.tar.xz
+          for url in \
+            https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-16.1.tar.xz \
+            https://ftp.osuosl.org/pub/blfs/conglomeration/pulseaudio/pulseaudio-16.1.tar.xz ; do
+            echo "Trying $url"
+            curl -fsS -L --connect-timeout 20 -o "$target" "$url" && break || rm -f "$target"
+          done
+          echo "7bf3845b522a1da263b6b84a0bc5aa761e49bc87  $target" | sha1sum -c -
       - name: Build
         run: |
           cd dists/linux

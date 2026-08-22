@@ -46,9 +46,7 @@ if older 1.8 wayland-scanner --version ; then
 	deps+=('wayland,https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.21.91/downloads/wayland-1.21.91.tar.xz,d4f5b5e2453d45902016138dae0605cae096e00b')
 fi
 
-# www.freedesktop.org (annarchy) refuses connections, which breaks this download.
-# The BLFS mirror at OSU OSL serves the identical tarball, so the sha1 is unchanged.
-deps+=('pulseaudio,https://ftp.osuosl.org/pub/blfs/conglomeration/pulseaudio/pulseaudio-16.1.tar.xz,7bf3845b522a1da263b6b84a0bc5aa761e49bc87')
+deps+=('pulseaudio,https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-16.1.tar.xz,7bf3845b522a1da263b6b84a0bc5aa761e49bc87')
 deps+=('pipewire,https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/0.3.66/pipewire-0.3.66.tar.bz2,20c58dd867c33a7d111df69d7ec8d31c45b92a0b')
 deps+=('wayland-protocols,https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.31/downloads/wayland-protocols-1.31.tar.xz,5a84628630598027fab1708f822fc399d9e70b02')
 deps+=('xkbcommon,https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.13.1.tar.gz,f487d1e7f5e362b8971e23e354d9eb4bdc51e453')
